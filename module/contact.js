@@ -18,7 +18,7 @@ let user = new Schema({
     email:{
         type:String,
     },
-    description:{
+    message:{
         type: String
     }
     

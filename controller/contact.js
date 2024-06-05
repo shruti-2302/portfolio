@@ -3,10 +3,10 @@ const validator = require('validator');
 const { v4: uuidv4 } = require('uuid')
 //signup api 
 exports.contact = async (req, res) => {
-    const { firstname,lastname,number,email,description } = req.body;
+    const { firstname,lastname,number,email,message } = req.body;
     try {
         // Check if the email already exists
-if(!firstname||!lastname||!number||!email||!description){
+if(!firstname||!lastname||!number||!email||!message){
     return res.status(400).json({error:'all fileds are require'});
 }
 
@@ -26,7 +26,7 @@ if(!firstname||!lastname||!number||!email||!description){
 
         const newUser = new contact({
             _id: userId,
-           firstname, lastname,number ,email,description
+           firstname, lastname,number ,email,message
            
         });
 
