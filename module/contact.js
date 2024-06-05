@@ -6,8 +6,11 @@ let user = new Schema({
     _id:{
         type:String
     },
-    name:{
+    firstname:{
         type: String
+    },
+    lastname:{
+        type:String
     },
     number:{
         type:Number

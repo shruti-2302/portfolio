@@ -3,10 +3,10 @@ const validator = require('validator');
 const { v4: uuidv4 } = require('uuid')
 //signup api 
 exports.contact = async (req, res) => {
-    const { name,number,email,description } = req.body;
+    const { firstname,lastname,number,email,description } = req.body;
     try {
         // Check if the email already exists
-if(!name||!number||!email||!description){
+if(!firstname||!lastname||!number||!email||!description){
     return res.status(400).json({error:'all fileds are require'});
 }
 
@@ -15,7 +15,7 @@ if(!name||!number||!email||!description){
             return res.status(400).json({ error: 'Invalid email format' });
         }
 
-        if (!validator.isAlpha(name.replace(/\s/g, '')|| !validator.isAlpha(description.replace(/\s/g,'')))) {
+        if (!validator.isAlpha(firstname.replace(/\s/g, '')||!validator.isAlpha(lastname.replace(/\s/g, '')|| !validator.isAlpha(description.replace(/\s/g,''))))) {
             return res.status(400).json({ message: 'Invalid name format' });
           }
           if (!validator.isNumeric(number.toString()) || number.toString().length !== 10) {
@@ -26,7 +26,7 @@ if(!name||!number||!email||!description){
 
         const newUser = new contact({
             _id: userId,
-           name,number ,email,description
+           firstname, lastname,number ,email,description
            
         });
 
